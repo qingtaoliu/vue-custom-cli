@@ -1,5 +1,5 @@
 module.exports = {
-  baseUrl: process.env.NODE_ENV === 'production' ? '//your_url' : '/',
+  baseUrl: process.env.NODE_ENV === 'production' ? 'http://localhost:3000/' : '/',
 
   outputDir: 'dist',
 
@@ -23,8 +23,8 @@ module.exports = {
       title: '首页',
       // chunks to include on this pages, by default includes
       // extracted common chunks and vendor chunks.
-      chunks: ['chunk-vendors', 'chunk-common', 'index'],
-    },
+      chunks: ['chunk-vendors', 'chunk-common', 'index']
+    }
     // when using the entry-only string format,
     // template is inferred to be `public/subpage.html`
     // and falls back to `public/index.html` if not found.
@@ -55,7 +55,7 @@ module.exports = {
   chainWebpack: config => {
     // 因为是多页面，所以取消 chunks，每个页面只对应一个单独的 JS / CSS
     config.optimization.splitChunks({
-      cacheGroups: {},
+      cacheGroups: {}
     })
 
     // 'src/lib' 目录下为外部库文件，不参与 eslint 检测
@@ -84,8 +84,8 @@ module.exports = {
 
       postcss: {
         // options here will be passed to postcss-loader
-      },
-    },
+      }
+    }
   },
 
   // All options for webpack-dev-server are supported
@@ -102,15 +102,13 @@ module.exports = {
     hotOnly: false,
 
     proxy: null,
-
-    before: app => {},
+    before: app => {}
   },
   // 构建时开启多进程处理 babel 编译
   parallel: require('os').cpus().length > 1,
 
   // https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
   pwa: {},
-
   // 第三方插件配置
-  pluginOptions: {},
+  pluginOptions: {}
 }
