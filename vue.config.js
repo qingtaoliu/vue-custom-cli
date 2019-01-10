@@ -71,7 +71,7 @@ module.exports = {
     modules: false,
 
     // 是否使用 css 分离插件 ExtractTextPlugin，采用独立样式文件载入，不采用 <style> 方式内联至 html 文件中
-    extract: true,
+    extract: false,
 
     // 是否构建样式地图，false 将提高构建速度
     sourceMap: false,
@@ -102,6 +102,12 @@ module.exports = {
     hotOnly: false,
 
     proxy: null,
+
+    overlay: {
+      warnings: true,
+      errors: true
+    },
+
     before: app => {}
   },
   // 构建时开启多进程处理 babel 编译
